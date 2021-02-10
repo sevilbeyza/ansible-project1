@@ -1,8 +1,18 @@
+# Ansible Project1 
+
+
 ## Prerequisites
+*Ubuntu server
+*Centos Server
+*SSH Connection established with Ansible-Server 
 
 For project we needs some prerequisites stuff.
 
 ## Usage
+
+[dev-playbooks] (dev-playbooks): Contains playbook for dev servers
+[prod-playbooks] (prod-playbooks): Contains playbook for dev servers
+
 
 ## Contributing
 

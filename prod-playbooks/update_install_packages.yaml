@@ -8,11 +8,11 @@
         ping:
 
       - name: Update CentOS
+        when: ansible_facts['distribution'] == "CentOS"
         yum:
           name: '*'
           state: latest
-        when: 
-          - ansible_facts['distribution'] == "CentOS"
+       
 
       - name: Install vim, git wget and curl packages on CentOS
         when: ansible_facts['distribution'] == "CentOS"
@@ -22,16 +22,16 @@
           - git
           - wget
           - curl
-         state: latest 
+          state: latest 
 
 
 
       - name: Update Ubuntu
+        when: ansible_facts['distribution'] == "Ubuntu"
         apt:
           name: '*'
           state: latest
-        when: 
-          - ansible_facts['distribution'] == "Ubuntu"
+        
 
 
       - name: Install vim, git wget and curl packages on Ubuntu
@@ -42,4 +42,4 @@
           - git
           - wget
           - curl 
-        state: latest  
+          state: latest  
