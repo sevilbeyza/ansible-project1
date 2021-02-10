@@ -1,6 +1,0 @@
----
-all:  
-  hosts:  
-  children:    
-    dev:      
-      hosts:
