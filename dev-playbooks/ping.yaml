@@ -1,7 +1,7 @@
 ---
   - name: Ping Hosts
-    hosts: all
+    hosts: dev
     tasks:
       - name: Ping Hosts
         ping:
-        when: "'prod' in group_names"
+        when: "'dev' in group_names"

@@ -1,7 +1,10 @@
 ---
 all: 
-  host:
-  
+  hosts:
   children:
     dev:
-      hosts: 
+      hosts:
+        centos_server1:        
+          ansible_host: 161.35.105.245
+        ubuntu_server2:     
+          ansible_host: 162.243.170.120

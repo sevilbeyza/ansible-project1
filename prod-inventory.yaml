@@ -1,8 +1,12 @@
 ---
 all:
   hosts:
-  
   children:
-    dev:
+    prod:
       hosts:
+        centos_server1:        
+          ansible_host: 157.230.83.23
+        ubuntu_server1:     
+          ansible_host: 157.230.90.98
+      
   

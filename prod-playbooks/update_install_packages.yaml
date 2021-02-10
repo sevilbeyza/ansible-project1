@@ -1,0 +1,28 @@
+---
+  - name: Multiple Tasks
+    hosts: prod
+    gather_facts: yes
+    tasks:
+      - name: Ping Hosts
+        when: "'prod' in group_names"
+        ping:
+
+
+      - name: Install vim, git wget and curl packages on CentOS
+        when: ansible_facts['distribution'] == "CentOS"
+        yum:
+          name:
+          - vim
+          - git
+          - wget
+          - curl
+
+
+      - name: Install vim, git wget and curl packages on Ubuntu
+        when: ansible_facts['distribution'] == "Ubuntu"
+        apt:
+          name:
+          - vim
+          - git
+          - wget
+          - curl 
