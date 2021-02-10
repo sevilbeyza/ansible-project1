@@ -1,6 +1,13 @@
-# ansible-project1
+## Prerequisites
 
-# Ansible Project 1The purpose of this project is to write conditional playbooks to manage multiple hosts withAnsible.## Prerequisites
+For project we needs some prerequisites stuff.
+
 ## Usage
+
 ## Contributing
-## Additional Note
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Addional Notes
