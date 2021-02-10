@@ -4,4 +4,4 @@
     tasks:
       - name: Ping Hosts
         ping:
-        when: "prod" in group_names 
+        when: "'prod' in group_names"
