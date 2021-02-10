@@ -7,6 +7,12 @@
         when: "'prod' in group_names"
         ping:
 
+      - name: Update CentOS
+        yum:
+          name: '*'
+          state: latest
+        when: 
+          - ansible_facts['distribution'] == "CentOS"
 
       - name: Install vim, git wget and curl packages on CentOS
         when: ansible_facts['distribution'] == "CentOS"
@@ -16,6 +22,15 @@
           - git
           - wget
           - curl
+
+
+
+      - name: Update Ubuntu
+        apt:
+          name: '*'
+          state: latest
+        when: 
+          - ansible_facts['distribution'] == "Ubuntu"
 
 
       - name: Install vim, git wget and curl packages on Ubuntu
