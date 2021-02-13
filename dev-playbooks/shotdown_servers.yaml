@@ -1,0 +1,17 @@
+---
+- name: shutdown dev servers
+  hosts: dev
+  become: 'yes'
+  become_method: sudo
+  hosts: dev
+
+  tasks:
+    - name: shutdown hosts centos_server1
+      command: /sbin/shutdown -h now
+      when: ansible_facts['os_family'] == "CentOS"
+      ignore_errors: 'yes'
+
+    - name: shutdown hosts ubuntu_server2
+      command: /sbin/shutdown -h now
+      when: ansible_facts['os_family'] == "Ubuntu"
+      ignore_errors: 'yes'  
