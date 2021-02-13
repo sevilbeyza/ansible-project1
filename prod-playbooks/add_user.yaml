@@ -1,0 +1,16 @@
+---
+  - name: Add users to prod servers
+    hosts: prod
+    tasks:
+      - name: Add user 'bob' 'sam' 'amy' 'liza' on CentOS and Ubuntu
+        user:
+          name: "{{ item }}"    
+          state: present
+          generate_ssh_key: yes
+        with_items:
+          - bob
+          - sam
+          - amy
+          - liza  
+
+             

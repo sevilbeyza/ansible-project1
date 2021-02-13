@@ -1,0 +1,14 @@
+---
+  - name: Add users to dev servers
+    hosts: dev
+    tasks:
+      - name: Add user 'bob' 'sam' 'amy' 'liza' on CentOS and Ubuntu
+        user:
+          name: "{{ item }}"    
+          state: present
+          generate_ssh_key: yes
+        with_items:
+          - bob
+          - sam
+          - amy
+          - liza
