@@ -1,19 +1,31 @@
 ---
-  - name: Update Remote Servers
+  - name: update package on dev servers
     hosts: dev
     gather_facts: yes
-    tasks:      
-      - name: Update CentOS
+    vars: 
+      package: curl
+    tasks:
+      - name: yum update packages on centos
         yum:
-          name: '*'
+          name: "*"
           state: latest
-        when: 
-          - ansible_facts['distribution'] == "CentOS"
-      - name: Update Ubuntu
+        when: ansible_facts['distribution'] == "CentOS"
+
+      - name: yum install curl on centos
+        yum:
+          name: "{{ package }}"
+          state: latest
+        when: ansible_facts['distribution'] == "CentOS"  
+          
+      - name: apt update packages on ubuntu
         apt:
-          name: '*'
+          name: "*"
           state: latest
-        when: 
-          - ansible_facts['distribution'] == "Ubuntu"
-    
+        when: ansible_facts['distribution'] == "Ubuntu" 
+
+      - name: yum install curl on ubuntu
+        apt:
+          name: "{{ package }}"
+          state: latest
+        when: ansible_facts['distribution'] == "Ubuntu"
     
