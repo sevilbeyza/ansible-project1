@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 playbook_name: "Testing Variable File"
 servers: "all"
 facts: no
 test_message: "Hello From test.yml"
+=======
+playbook_name: "testing variable file"
+servers: "all"
+facts: no # no "" when we use boolean
+test_message: "Hello from test.yaml"
+>>>>>>> d4a330db0029e03e3c67d8d1e446caaf941359b6
 custom_command: "pwd"
