@@ -14,6 +14,12 @@
           state: latest
         register: apache_installed_centos
       
+      - name: Copy Index.html
+        when: 
+        - ansible_facts['distribution'] == "CentOS"
+        copy: 
+          dest: /var/wwww/html/
+          src: /root/ansible-project1/static/index.html
       
       - name: Start Apache on CentOS7
         when: 
@@ -22,10 +28,13 @@
         - apache_installed_centos is success
         systemd:
           name: httpd
-          state: started
+          state: restarted
           enabled: yes
       
       
+
+
+
       - name: Install Apache on Ubuntu
         when: 
         - ansible_facts['distribution'] == "Ubuntu"

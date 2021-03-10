@@ -1,6 +1,7 @@
 ---
   - name: Ping Hosts
-    hosts: all
+    hosts: prod
+    gather_facts: no
     tasks:
       - name: Ping Hosts
         ping:

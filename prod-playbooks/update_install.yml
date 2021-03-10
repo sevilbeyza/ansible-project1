@@ -1,0 +1,36 @@
+---
+  - name: Update Servers and Install Packages
+    hosts: prod
+    gather_facts: yes
+    tasks:
+      - name: Update CentOS
+        when: ansible_facts['distribution'] == "CentOS"
+        yum:
+          name: '*'
+          state: latest
+      
+      - name: Install Packages on CentOS
+        when: ansible_facts['distribution'] == "CentOS"
+        yum:
+          name: 
+           - vim
+           - git
+           - curl
+           - wget
+          state: latest
+      
+      - name: Update Ubuntu
+        when: ansible_facts['distribution'] == "Ubuntu"
+        apt:
+          name: '*'
+          state: latest
+      
+      - name: Install Packages on Ubuntu
+        when: ansible_facts['distribution'] == "Ubuntu"
+        apt:
+          name: 
+            - vim
+            - git
+            - curl 
+            - wget
+          state: latest
